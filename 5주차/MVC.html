@@ -1,0 +1,19 @@
+# 컨트롤러
+
+@Controller
+public class HelloController {
+
+    @GetMapping("hello-mvc")
+    public String helloMvc(@RequestParam("name") String name, Model model) {
+        model.addAttribute("name", name);
+        return "hello-template";
+    }
+}
+
+# 뷰
+
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<p th:text="'hello ' + ${name}">hello! empty</p>
+</body>
+</html>
